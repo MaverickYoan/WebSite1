@@ -4,7 +4,10 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>wink - underground camouflage webapp</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <title>wink</title>
+
     <style>
         /* Underground Camouflage & Illusion Animation Styling */
         @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
@@ -25,6 +28,32 @@
             box-sizing: border-box;
         }
 
+        h2,
+        p,
+        span,
+        div,
+        .img,
+        iframe,
+        .contact-links,
+        .contact-link,
+        .social-links {
+            animation: linear slide;
+            animation-timeline: view();
+            animation-range: cover 0 cover 30%
+        }
+
+        @keyframes slide {
+            from {
+                transform: translateY(100%);
+                opacity: 0
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1
+            }
+        }
+
         body {
             margin: 0;
             font-family: 'Share Tech Mono', monospace;
@@ -37,6 +66,7 @@
             min-height: 100vh;
             display: flex;
             flex-direction: column;
+
         }
 
         /* Camouflage animated illusion background */
@@ -49,9 +79,9 @@
             bottom: 0;
             z-index: -1;
             background:
-                radial-gradient(circle at 20% 30%, rgba(107, 142, 35, 0.8) 25%, transparent 40%),
-                radial-gradient(circle at 80% 20%, rgba(85, 107, 47, 0.8) 30%, transparent 45%),
-                radial-gradient(circle at 50% 50%, rgba(169, 186, 157, 0.8) 40%, transparent 60%),
+                radial-gradient(circle at 20% 30%, rgba(22, 206, 43, 0.8) 25%, transparent 40%),
+                radial-gradient(circle at 80% 20%, rgba(35, 49, 10, 0.8) 30%, transparent 45%),
+                radial-gradient(circle at 50% 50%, rgba(106, 255, 0, 0.8) 40%, transparent 60%),
                 radial-gradient(circle at 40% 80%, rgba(11, 11, 11, 0.85) 35%, transparent 50%);
             animation: camouflageMove 20s linear infinite alternate;
             filter: contrast(1.2) brightness(0.85);
@@ -362,6 +392,23 @@
         }
 
         /* Contact */
+        /* .contact-links,
+        .contact-link,
+         {
+            display: inline-flex;
+            flex-flow: row;
+            justify-content: center;
+            align-items: center;
+        } */
+        #liens {
+            width: 150px;
+        }
+
+
+        .container {
+            border: 1px solid green;
+        }
+
         #contact h2 {
             text-align: center;
             color: var(--green-glow);
@@ -451,6 +498,10 @@
             background: var(--green-glow);
             color: var(--black);
             box-shadow: 0 0 10px var(--green-glow);
+        }
+
+        #projet img {
+            width: 100%;
         }
 
         /* Image management */
@@ -556,6 +607,7 @@
             border-radius: 4px;
         }
     </style>
+
 </head>
 
 <body>
@@ -568,20 +620,21 @@
             <button data-page="images" aria-label="Gestion des images">Images</button>
             <button data-page="admin" aria-label="Administration">Administration</button>
             <button data-page="contact" aria-label="Contact">Contact</button>
+            <button data-page="projet" aria-label="Projet">Projet</button>
         </nav>
     </header>
+
     <main>
         <section id="home" class="active" aria-label="Accueil">
-            <h2>Bienvenue sur wink.apk</h2>
-            <p>Explorez notre univers underground avec un design camouflage animé et des fonctionnalités
-                puissantes.<br />Naviguez à travers les sections pour découvrir notre catalogue, gérer vos images, ou
-                contacter le support.</p>
+            <h2>Bienvenue sur wink</h2>
+            <p>Explorez notre univers underground</p>
+            <img src="levelUp.jpeg" width="100%" height="100%" alt="">
         </section>
 
         <section id="about" aria-label="À propos">
-            <h2>À propos de wink.apk</h2>
-            <p>wink.apk est une application web underground immersive conçue avec un design camouflage animée et des
-                fonctionnalités modernes : gestion de catalogue, authentification sécurisée et support intégré.</p>
+            <h2>À propos de wink</h2>
+            <p>wink est une application web underground immersive conçue avec un design camouflage animée et des
+                fonctionnalités modernes : gestion de catalogue, authentification sécurisée avec support intégré.</p>
             <p>Ce prototype frontend montre l'interface et la navigation. Pour la fonctionnalité complète avec base de
                 données phpMyAdmin et authentification Google Authenticator, un backend PHP/MySQL est nécessaire.</p>
         </section>
@@ -644,7 +697,8 @@
                 <p id="contact-status" role="alert" aria-live="polite" style="margin-top:8px;"></p>
             </form>
             <div id="social-links" aria-label="Réseaux sociaux">
-                <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">📘
+                <a href="https://www.facebook.com/maverick.bash" target="_blank" rel="noopener noreferrer"
+                    aria-label="Facebook">📘
                     Facebook</a>
                 <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" aria-label="Twitter">🐦
                     Twitter</a>
@@ -654,9 +708,69 @@
                     LinkedIn</a>
                 <a href="https://github.com/" target="_blank" rel="noopener noreferrer" aria-label="GitHub">🐙
                     GitHub</a>
-            </div>
+                <a id="liens" href="http://www.youtube.com/@TeK2OuF" target="_blank" rel="noopener noreferrer"
+                    aria-label="YouTube" width="10%"><img src="8066-youtubemusic.png" width="20%">YouTube</a>
+                <a id="liens" href="https://soundcloud.com/yoan-de-menezes/sets/tek2ouf" target="_blank"
+                    rel="noopener noreferrer" aria-label="Soundcloud" width="10%"><img src="8066-youtubemusic.png"
+                        width="20%"> Soundcloud0</a>
+
+                <a id="liens" href="https://soundcloud.com/tek2ouf" target="_blank" rel="noopener noreferrer"
+                    aria-label="YouTube" width="10%"><img src="icon_soundcloud.jpg" width="20%">
+                    Soundcloud1</a>
+
+                <a id="liens" href="https://soundcloud.com/mav-yo" target="_blank" rel="noopener noreferrer"
+                    aria-label="YouTube" width="10%"><img src="8066-youtubemusic.png" width="20%">
+                    Soundcloud2</a>
+
+                <a id="liens" href="http://www.youtube.com/@TeK2OuF" target="_blank" rel="noopener noreferrer"
+                    aria-label="YouTube" width="10%"><img src="8066-youtubemusic.png" width="20%">
+                    YouTube</a>
+
+                <a id="liens" href="http://www.youtube.com/@TeK2OuF" target="_blank" rel="noopener noreferrer"
+                    aria-label="YouTube" width="10%"><img src="8066-youtubemusic.png" width="20%">
+                    YouTube</a>
+
+                <a id="liens" href="http://www.youtube.com/@TeK2OuF" target="_blank" rel="noopener noreferrer"
+                    aria-label="YouTube" width="10%"><img src="8066-youtubemusic.png" width="20%">
+                    YouTube</a>
+
+                <a id="liens" href="http://www.youtube.com/@TeK2OuF" target="_blank" rel="noopener noreferrer"
+                    aria-label="YouTube" width="10%"><img src="8066-youtubemusic.png" width="20%">
+                    YouTube</a>
+
+                <a id="liens" href="http://www.youtube.com/@TeK2OuF" target="_blank" rel="noopener noreferrer"
+                    aria-label="YouTube" width="10%"><img src="8066-youtubemusic.png" width="20%">
+                    YouTube</a>
+
+                <a id="liens" href="http://www.youtube.com/@TeK2OuF" target="_blank" rel="noopener noreferrer"
+                    aria-label="YouTube" width="10%"><img src="8066-youtubemusic.png" width="20%">
+                    YouTube</a>
+
+                <a id="liens" href="http://www.youtube.com/@TeK2OuF" target="_blank" rel="noopener noreferrer"
+                    aria-label="YouTube" width="10%"><img src="8066-youtubemusic.png" width="20%">
+                    YouTube</a>
+
+                <a id="liens" href="http://www.youtube.com/@TeK2OuF" target="_blank" rel="noopener noreferrer"
+                    aria-label="YouTube" width="10%"><img src="8066-youtubemusic.png" width="20%">
+                    YouTube</a>
+
+
+
+
+
+
+
+                <div class="beforeFooter">
+                    <img class="imgLogo" src="logoTeK2OuF02.jpg" alt="logo TeK2OuF 02">
+        </section>
+
+        </section>
+        <section id="projet" aria-label="Projet">
+            <h2>Projet</h2>
+            <img src="chatGPT_Image2_catalogue.png" alt="Projet catalogue @onlineformapro">
         </section>
     </main>
+
     <footer>
         &copy; 2024 wink.apk - underground green camouflage design
     </footer>
